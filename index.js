@@ -20,7 +20,8 @@ const pool = new Pool({
 
 exports.handler = async (event) => {
     
-    var business_entity;
+    let business_entity;
+
     const respSelect = await pool.query('SELECT distinct business_entity from ' + db_schema + '.vehicle_data_processing');
     for (const key of respSelect.rows) {
         console.log("business_entity **" + key['business_entity']);
