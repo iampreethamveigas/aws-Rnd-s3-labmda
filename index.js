@@ -21,7 +21,6 @@ const pool = new Pool({
 exports.handler = async (event) => {
     
     let business_entity;
-
     const respSelect = await pool.query('SELECT distinct business_entity from ' + db_schema + '.vehicle_data_processing');
     for (const key of respSelect.rows) {
         console.log("business_entity **" + key['business_entity']);
@@ -29,8 +28,8 @@ exports.handler = async (event) => {
         break;
     }
     console.log("busi_outside " + business_entity);
-    var currentdate = new Date();
-    var formattedDate = currentdate.getFullYear().toString() + currentdate.getMonth() + 1 + (currentdate.getDate()) + currentdate.getHours() + currentdate.getMinutes() + currentdate.getSeconds() + currentdate.getMilliseconds();
+    let currentdate = new Date();
+    let formattedDate = currentdate.getFullYear().toString() + currentdate.getMonth() + 1 + (currentdate.getDate()) + currentdate.getHours() + currentdate.getMinutes() + currentdate.getSeconds() + currentdate.getMilliseconds();
 
 
 
