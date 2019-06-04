@@ -41,9 +41,6 @@ exports.handler = async (event) => {
 
     const sql = "INSERT INTO " + db_schema + ".APV_IVE_JOBS_PROCESSING_STATUS (job_id,job_name,start_time,status,business_entity) VALUES ($1,$2,$3,$4,$5)";
     const values = ['MoveToProcessing_'.concat(formattedDate), 'MoveToProcessing', currentdate, 'InProgress', business_entity];
-
-    console.log('testt' + values);
-
     const resp = await pool.query(sql, values);
 
     if (resp.err) { console.log('error'); }
