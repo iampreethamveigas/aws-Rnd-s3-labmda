@@ -53,7 +53,7 @@ exports.handler = async (event) => {
     //Insert record VEHICLE_DATA_REQUEST_INFO table 
 
     let req_id = formattedDate + 'W' + business_entity + '000000';
-    var req_user = '00000';
+    let req_user = '00000';
     // var req_date = formattedDate;
     var req_type = 'Weekly';
     var req_status = 'Started';
