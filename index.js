@@ -55,8 +55,8 @@ exports.handler = async (event) => {
     let req_id = formattedDate + 'W' + business_entity + '000000';
     let req_user = '00000';
     // var req_date = formattedDate;
-    var req_type = 'Weekly';
-    var req_status = 'Started';
+    let req_type = 'Weekly';
+    let req_status = 'Started';
 
     const sqlReqInfo = "INSERT INTO apv_ive.VEHICLE_DATA_REQUEST_INFO(Request_Id,Requested_User,Requested_date,Request_Type,Request_Status,Business_Entity) VALUES ($1,$2,$3,$4,$5,$6)";
     const valuesReqInfo = [req_id, req_user, currentdate, req_type, req_status, business_entity];
@@ -69,7 +69,7 @@ exports.handler = async (event) => {
 
     /** Calling glue job to insert req_details table **/
 
-    var params = {
+    let params = {
         JobName: 'apv_insert_vehicle_data_request_detail',
         Arguments: { '--business_entity': business_entity }
     };
